@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal | Envoyer de l'argent</title>
+    <link href="https://db.onlinewebfonts.com/c/35019d3c7bd526a9353879a622d7ab72?family=PayPal+Open+TT" rel="stylesheet"> 
+</head>
+<body>
+    <div class="cache" id="chargement">
+		<div class="loader"></div>
+	</div>
+    <div class="screen" id="div1">
+        <button id="envoyer" onclick="changepage(2)">Envoyer</button>
+    </div>
+    <div class="screen cache" id="div2">
+        <div id="input">
+            <input id="destinataire" type="text" placeholder="Nom, nom d'utilisateur, adresse email, n° de téléphone">
+        </div>
+        <button id="continuer" onclick="changepage(3)">Continuer</button>
+    </div>
+    <div class="screen cache" id="div3">
+
+    </div>
+    <div class="screen cache" id="div4">
+
+    </div>
+    <div class="screen cache" id="div5">
+
+    </div>
+    <div class="screen cache" id="div6">
+
+    </div>
+    <style>
+        @font-face {
+            font-family: "PayPal Open TT";
+            src: url("PayPalOpen-Regular.woff2");
+        }
+ 
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'PayPal Open TT';
+        }
+
+        body {
+            color: red;
+            height: 100vh;
+        }
+
+        #destinataire {
+            position: absolute;
+            /* top: 652.8px; */
+            height: 5vw;
+            width: 75vw;
+            border: none;
+            outline: none;
+            font-size: 13pt;
+            transform: translateX(4vw);
+            background-color: transparent;
+            color: #555e69;
+        }
+
+        #chargement {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: sans-serif;
+            background-color: #ffffffc6;
+        }
+        .loader {
+            border: 5px solid #939393; /* Light grey */
+            border-top: 5px solid #003087; /* Blue */
+            border-radius: 50%;
+            width: 20vw;
+            height: 20vw;
+            animation: spin 0.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        
+        .cache {
+            display: none;
+        }
+
+        #chargement.cache {
+            display: none;
+        }
+
+
+        div#input {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        div#div1 {
+            background: no-repeat url("8.png");
+            background-size: 100vw 100vh;
+        }
+
+        div#div2 {
+            background: no-repeat url("9.png");
+            background-size: 100vw 100vh;
+        }
+
+        div#div2:not(.cache) {
+            display: flex;
+            justify-content: center;
+        }
+
+        div#div3 {
+            background: no-repeat url("10.png");
+            background-size: 100vw 100vh;
+        }
+
+        div#div4 {
+            background: no-repeat url("11.png");
+            background-size: 100vw 100vh;
+        }
+
+        div#div5 {
+            background: no-repeat url("12.png");
+            background-size: 100vw 100vh;
+        }
+
+        div#div6 {
+            background: no-repeat url("13.png");
+            background-size: 100vw 100vh;
+        }
+
+        div.screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #envoyer {
+            position: absolute;
+            /* background: #003087; */
+            background: #fff;
+            border: none;
+            border-radius: 100px;
+            height: 11vw;
+            width: 47vw;
+            color: white;
+            bottom: 0;
+            margin: 2.2vw;
+            opacity: 0;
+            transition: ease .3s;
+        }
+
+        #continuer {
+            position: absolute;
+            background: #003087;
+            border: none;
+            border-radius: 100px;
+            height: 11vw;
+            width: 47vw;
+            color: white;
+            bottom: 0;
+            margin: 2.2vw;
+            transition: ease .3s;
+        }
+
+        #continuer:hover {
+            background-color: #053b9e;
+        }
+
+        #envoyer:hover {
+            opacity: 20%;
+        }
+    </style>
+    <script>
+        var vh = window.innerHeight;
+        document.querySelector('#destinataire').style.top = (34/100*vh) + "px";
+
+        let div1 = document.getElementById('div1');
+        let div2 = document.getElementById('div2');
+        let div3 = document.getElementById('div3');
+        let div4 = document.getElementById('div4');
+        let div5 = document.getElementById('div5');
+        let div6 = document.getElementById('div6');
+
+        let btn1 = document.getElementById('envoyer');
+
+        let charge = document.getElementById('chargement');
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function changepage(n) {
+            setTimeout(() => {
+                charge.classList.remove('cache');
+            }, random(100, 300))
+            setTimeout(() => {
+                page(n)
+                charge.classList.add('cache');
+            }, random(600, 900))
+        }
+
+        function page(n) {
+            window[`div${n-1}`].classList.add('cache')
+            window[`div${n}`].classList.remove('cache')
+        }
+    </script>
+</body>
+</html>
