@@ -20,12 +20,16 @@
         <button id="continuer" onclick="changepage(3)">Continuer</button>
     </div>
     <div class="screen cache" id="div3">
+        <div id="pk-cont">
+            <input type="tel" id="pay" placeholder="0,00">
+            <input id="pk" type="text" placeholder="Pourquoi ce paiement ?">
+            <button class="onvoitpas" id="suivantpay" onclick="changepage(4); argent()">Suivant</button>
+        </div>
+    </div>
+    <div onclick="changepage(5)" class="screen cache" id="div4">
 
     </div>
-    <div class="screen cache" id="div4">
-
-    </div>
-    <div class="screen cache" id="div5">
+    <div onclick="changepage(5)" class="screen cache" id="div5">
 
     </div>
     <div class="screen cache" id="div6">
@@ -57,10 +61,35 @@
             width: 75vw;
             border: none;
             outline: none;
-            font-size: 13pt;
+            font-size: 12pt;
             transform: translateX(4vw);
             background-color: transparent;
             color: #555e69;
+        }
+
+        #pk {
+            position: absolute;
+            /* top: 652.8px; */
+            height: 5vw;
+            width: 75vw;
+            border: none;
+            outline: none;
+            font-size: 10.5pt;
+            transform: translateX(-6.5vw);
+            background-color: transparent;
+            color: #555e69;
+        }
+
+        #pay {
+            position: absolute;
+            height: 8vw;
+            width: 100vw;
+            text-align: center;
+            border: none;
+            outline: none;
+            font-size: 25pt;
+            background-color: transparent;
+            color: black;
         }
 
         #chargement {
@@ -99,7 +128,7 @@
         }
 
 
-        div#input {
+        div#input, div#pk-cont {
             display: flex;
             justify-content: center;
             width: 100vw;
@@ -150,6 +179,7 @@
         }
 
         #envoyer {
+            cursor: pointer;
             position: absolute;
             /* background: #003087; */
             background: #fff;
@@ -165,6 +195,7 @@
         }
 
         #continuer {
+            cursor: pointer;
             position: absolute;
             background: #003087;
             border: none;
@@ -178,7 +209,37 @@
         }
 
         #continuer:hover {
-            background-color: #053b9e;
+            background-color: #2596be;
+        }
+
+        #suivantpay {
+            font-weight: bolder;
+            cursor: pointer;
+            position: absolute;
+            top: 63vh;
+            background: #003087;
+            border: none;
+            border-radius: 100px;
+            height: 10vw;
+            width: 82vw;
+            color: white;
+            transform: scale(0.8);
+            margin: 2.2vw;
+            transition: ease .3s;
+            font-size: 14pt;
+        }
+
+        #suivantpay.onvoitpas {
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #suivantpay:not(.onvoitpas) {
+            opacity: 1;
+        }
+
+        #suivantpay:hover {
+            background-color: #2596be;
         }
 
         #envoyer:hover {
@@ -187,7 +248,24 @@
     </style>
     <script>
         var vh = window.innerHeight;
-        document.querySelector('#destinataire').style.top = (34/100*vh) + "px";
+        document.querySelector('#destinataire').style.top = (34.2/100*vh) + "px";
+        document.querySelector('#pk').style.top = (44.5/100*vh) + "px";
+        document.querySelector('#pay').style.top = (29.5/100*vh) + "px";
+
+        let argent;
+
+        document.querySelector('#pay').addEventListener('change', (e)=> {
+            let qtt = +(e.target.value.replace(',', "."));
+            if (qtt == 0) {
+                document.querySelector('#suivantpay').classList.add('onvoitpas')
+            } else {
+                document.querySelector('#suivantpay').classList.remove('onvoitpas')
+            }
+        })
+
+        function argent() {
+            argent = document.querySelector('#pay').value;
+        }
 
         let div1 = document.getElementById('div1');
         let div2 = document.getElementById('div2');
