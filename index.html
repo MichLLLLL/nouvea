@@ -252,7 +252,7 @@
         document.querySelector('#pk').style.top = (44.5/100*vh) + "px";
         document.querySelector('#pay').style.top = (29.5/100*vh) + "px";
 
-        let argent;
+        let cmb;
 
         document.querySelector('#pay').addEventListener('change', (e)=> {
             let qtt = +(e.target.value.replace(',', "."));
@@ -264,7 +264,7 @@
         })
 
         function argent() {
-            argent = document.querySelector('#pay').value;
+            cmb = document.querySelector('#pay').value;
         }
 
         let div1 = document.getElementById('div1');
