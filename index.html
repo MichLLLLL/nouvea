@@ -808,9 +808,11 @@
         // document.querySelector('#pk').style.top = (36.5/100*vh) + decal + "px";
         // document.querySelector('#pay').style.top = (24/100*vh) + decal + "px";
 
-        document.querySelector('#destinataire').style.top = (31.3/100*vh) + "px";
-        document.querySelector('#pk').style.top = (40.6/100*vh) + "px";
-        document.querySelector('#pay').style.top = (26.4/100*vh) + "px";
+        let decal = -22;
+
+        document.querySelector('#destinataire').style.top = (31.3/100*vh) - decal + "px";
+        document.querySelector('#pk').style.top = (40.6/100*vh) - decal + "px";
+        document.querySelector('#pay').style.top = (26.4/100*vh) - decal + "px";
 
         let cmb;
         let cmbdep;
