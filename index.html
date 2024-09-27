@@ -435,7 +435,9 @@
     
     <style>
 
-        :root {
+        
+
+:root {
             --decal: -3.01vh;
         }
 
@@ -458,7 +460,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 37.4vh;
+            top: 41vh;
             width: 100vw;
             font-size: 9.6pt;
             text-align: center;
@@ -477,7 +479,7 @@
             transform: scale(0.96) translateX(2vw);
             position: absolute;
             height: 23vh;
-            top: 35vh;
+            top: 37.5vh;
             box-shadow: 0 0 10px lightgrey;
             border-radius: 10px;
         }
@@ -495,7 +497,7 @@
             font-size: 16pt;
             color: #1e202a;
             position: relative;
-            top: 12vh;
+            top: 14vh;
             border-radius: 8px;
         }
 
@@ -556,7 +558,7 @@
             font-size: 25pt;
             background-color: transparent;
             color: #1e202a;
-            top: 23.2vh;
+            top: 25.2vh;
         }
 
         #compte {
@@ -568,7 +570,7 @@
             font-size: 27pt;
             background-color: transparent;
             color: #1e202a;
-            top: 30.4vh;
+            top: 33.4vh;
             left: 7.5vw;
             pointer-events: none;
         }
@@ -625,7 +627,7 @@
 
         .flexcenter {
             position: relative;
-            top: 10.9vh;
+            top: 12.9vh;
             display: flex;
             justify-content: center;
             height: 6rem;
@@ -639,7 +641,7 @@
             justify-content: right;
             width: 100vw;
             position: absolute;
-            top: 60.7vh;
+            top: 67.1vh;
         }
 
         .flexcenter > * {
@@ -720,7 +722,7 @@
             height: 11vw;
             width: 47vw;
             color: white;
-            top: 75vh;
+            top: 82vh;
             margin: 2.2vw;
             opacity: 0;
             transition: ease .3s;
@@ -751,7 +753,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 74.5vh;
+            top: 82.5vh;
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -768,7 +770,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 52vh;
+            top: 57.5vh;
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -797,13 +799,18 @@
         #envoyer:hover {
             opacity: 20%;
         }
+    
     </style>
     <script>
         var vh = window.innerHeight;
-        var decal = (-+(getComputedStyle(document.querySelector(':root')).getPropertyValue('--decal').replace('vh', '')))/100*vh;
-        document.querySelector('#destinataire').style.top = (28.2/100*vh) + decal + "px";
-        document.querySelector('#pk').style.top = (36.5/100*vh) + decal + "px";
-        document.querySelector('#pay').style.top = (24/100*vh) + decal + "px";
+        // var decal = (-+(getComputedStyle(document.querySelector(':root')).getPropertyValue('--decal').replace('vh', '')))/100*vh;
+        // document.querySelector('#destinataire').style.top = (28.2/100*vh) + decal + "px";
+        // document.querySelector('#pk').style.top = (36.5/100*vh) + decal + "px";
+        // document.querySelector('#pay').style.top = (24/100*vh) + decal + "px";
+
+        document.querySelector('#destinataire').style.top = (31.3/100*vh) + "px";
+        document.querySelector('#pk').style.top = (40.6/100*vh) + "px";
+        document.querySelector('#pay').style.top = (26.4/100*vh) + "px";
 
         let cmb;
         let cmbdep;
