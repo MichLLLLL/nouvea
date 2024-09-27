@@ -68,11 +68,16 @@
     </div>
 
     <style>
+
+        :root {
+            --decal: -22px;
+        }
+
         @font-face {
             font-family: "PayPal Open TT";
             src: url("PayPalOpen-Regular.woff2");
         }
- 
+
         #pp {
             background: url('pp.jpg');
             border-radius: 50%;
@@ -87,7 +92,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 37.4vh;
+            top: calc(37.4vh - var(--decal));
             width: 100vw;
             font-size: 9.6pt;
             text-align: center;
@@ -106,7 +111,7 @@
             transform: scale(0.96) translateX(2vw);
             position: absolute;
             height: 23vh;
-            top: 35vh;
+            top: calc(35vh - var(--decal));
             box-shadow: 0 0 10px lightgrey;
             border-radius: 10px;
         }
@@ -124,7 +129,7 @@
             font-size: 16pt;
             color: #1e202a;
             position: relative;
-            top: 12vh;
+            top: calc(12vh - var(--decal));
             border-radius: 8px;
         }
 
@@ -153,7 +158,6 @@
 
         #pk {
             position: absolute;
-            /* top: 652.8px; */
             height: 5vw;
             width: 75vw;
             border: none;
@@ -175,7 +179,7 @@
             background-color: transparent;
             color: #1e202a;
         }
-        
+
         #leprix {
             position: absolute;
             height: 8vw;
@@ -186,7 +190,7 @@
             font-size: 25pt;
             background-color: transparent;
             color: #1e202a;
-            top: 23.2vh;
+            top: calc(23.2vh - var(--decal));
         }
 
         #compte {
@@ -198,7 +202,7 @@
             font-size: 27pt;
             background-color: transparent;
             color: #1e202a;
-            top: 30.4vh;
+            top: calc(30.4vh - var(--decal));
             left: 7.5vw;
             pointer-events: none;
         }
@@ -241,7 +245,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        
         .cache {
             display: none;
         }
@@ -256,7 +259,7 @@
 
         .flexcenter {
             position: relative;
-            top: 10.9vh;
+            top: calc(10.9vh - var(--decal));
             display: flex;
             justify-content: center;
             height: 6rem;
@@ -270,7 +273,7 @@
             justify-content: right;
             width: 100vw;
             position: absolute;
-            top: 60.7vh;
+            top: calc(60.7vh - var(--decal));
         }
 
         .flexcenter > * {
@@ -351,7 +354,7 @@
             height: 11vw;
             width: 47vw;
             color: white;
-            top: 75vh;
+            top: calc(75vh - var(--decal));
             margin: 2.2vw;
             opacity: 0;
             transition: ease .3s;
@@ -366,7 +369,7 @@
             height: 11vw;
             width: 47vw;
             color: white;
-            top: 70.2vh;
+            top: calc(70.2vh - var(--decal));
             margin: 2.2vw;
             transition: ease .3s;
             font-weight: bolder;
@@ -382,7 +385,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 74.5vh;
+            top: calc(74.5vh - var(--decal));
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -399,7 +402,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 52vh;
+            top: calc(52vh - var(--decal));
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -430,10 +433,11 @@
         }
     </style>
     <script>
+        var decal = -+(getComputedStyle(document.querySelector(':root')).getPropertyValue('--decal').replace('px', ''));
         var vh = window.innerHeight;
-        document.querySelector('#destinataire').style.top = (28.2/100*vh) + "px";
-        document.querySelector('#pk').style.top = (36.5/100*vh) + "px";
-        document.querySelector('#pay').style.top = (24/100*vh) + "px";
+        document.querySelector('#destinataire').style.top = (28.2/100*vh) + decal + "px";
+        document.querySelector('#pk').style.top = (36.5/100*vh) + decal + "px";
+        document.querySelector('#pay').style.top = (24/100*vh) + decal + "px";
 
         let cmb;
         let cmbdep;
