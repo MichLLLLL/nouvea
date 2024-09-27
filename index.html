@@ -433,8 +433,8 @@
         }
     </style>
     <script>
-        var decal = (-+(getComputedStyle(document.querySelector(':root')).getPropertyValue('--decal').replace('vh', '')))/100*vh;
         var vh = window.innerHeight;
+        var decal = (-+(getComputedStyle(document.querySelector(':root')).getPropertyValue('--decal').replace('vh', '')))/100*vh;
         document.querySelector('#destinataire').style.top = (28.2/100*vh) + decal + "px";
         document.querySelector('#pk').style.top = (36.5/100*vh) + decal + "px";
         document.querySelector('#pay').style.top = (24/100*vh) + decal + "px";
