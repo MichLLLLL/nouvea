@@ -10,11 +10,11 @@
     <div class="cache" id="chargement">
 		<div class="loader"></div>
 	</div>
-    <div class="screen" id="div1"></div>
+    <div class="screen" id="div1">
         <div id="pk-cont">
             <span id="compte">9 463,78 €</span>
         </div>
-        <button id="envoyer" onclick="changepage(2)">Envoyer</button>
+        <button id="envoyer" onclick="changepage(2)">Envoyer</button></div>
     </div>
     <div class="screen cache" id="div2">
         <div id="input">
@@ -68,7 +68,6 @@
     </div>
 
     <style>
-
         @font-face {
             font-family: "PayPal Open TT";
             src: url("PayPalOpen-Regular.woff2");
@@ -79,14 +78,16 @@
             border-radius: 50%;
             width: 6rem;
             height: 6rem;
-            transform: scale(0.85);
+            transform: scale(0.8);
         }
+
+        /* #div1, #div2, #div3, #div4, #div5, #div6, #div7 > *  */
 
         #synthese {
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 44.4vh;
+            top: 37.4vh;
             width: 100vw;
             font-size: 9.6pt;
             text-align: center;
@@ -105,7 +106,7 @@
             transform: scale(0.96) translateX(2vw);
             position: absolute;
             height: 23vh;
-            top: 40vh;
+            top: 35vh;
             box-shadow: 0 0 10px lightgrey;
             border-radius: 10px;
         }
@@ -123,7 +124,8 @@
             font-size: 16pt;
             color: #1e202a;
             position: relative;
-            top: 15vh;
+            top: 12vh;
+            border-radius: 8px;
         }
 
         * {
@@ -139,7 +141,6 @@
 
         #destinataire {
             position: absolute;
-            /* top: 652.8px; */
             height: 5vw;
             width: 75vw;
             border: none;
@@ -185,7 +186,7 @@
             font-size: 25pt;
             background-color: transparent;
             color: #1e202a;
-            top: 28.7vh;
+            top: 23.2vh;
         }
 
         #compte {
@@ -197,7 +198,7 @@
             font-size: 27pt;
             background-color: transparent;
             color: #1e202a;
-            top: 38.2vh;
+            top: 30.4vh;
             left: 7.5vw;
             pointer-events: none;
         }
@@ -255,7 +256,7 @@
 
         .flexcenter {
             position: relative;
-            top: 13.5vh;
+            top: 10.9vh;
             display: flex;
             justify-content: center;
             height: 6rem;
@@ -269,7 +270,7 @@
             justify-content: right;
             width: 100vw;
             position: absolute;
-            top: 73.7vh;
+            top: 60.7vh;
         }
 
         .flexcenter > * {
@@ -350,7 +351,7 @@
             height: 11vw;
             width: 47vw;
             color: white;
-            bottom: 0;
+            top: 75vh;
             margin: 2.2vw;
             opacity: 0;
             transition: ease .3s;
@@ -365,9 +366,12 @@
             height: 11vw;
             width: 47vw;
             color: white;
-            bottom: 0;
+            top: 70.2vh;
             margin: 2.2vw;
             transition: ease .3s;
+            font-weight: bolder;
+            font-size: 11pt;
+            transform: scale(0.85);
         }
 
         #continuer:hover {
@@ -378,7 +382,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 90vh;
+            top: 74.5vh;
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -395,7 +399,7 @@
             font-weight: bolder;
             cursor: pointer;
             position: absolute;
-            top: 63vh;
+            top: 52vh;
             background: #003087;
             border: none;
             border-radius: 100px;
@@ -427,9 +431,9 @@
     </style>
     <script>
         var vh = window.innerHeight;
-        document.querySelector('#destinataire').style.top = (34.2/100*vh) + "px";
-        document.querySelector('#pk').style.top = (44.5/100*vh) + "px";
-        document.querySelector('#pay').style.top = (29.5/100*vh) + "px";
+        document.querySelector('#destinataire').style.top = (28.2/100*vh) + "px";
+        document.querySelector('#pk').style.top = (36.5/100*vh) + "px";
+        document.querySelector('#pay').style.top = (24/100*vh) + "px";
 
         let cmb;
         let cmbdep;
