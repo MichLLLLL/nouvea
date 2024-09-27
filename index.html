@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,38 +10,121 @@
     <div class="cache" id="chargement">
 		<div class="loader"></div>
 	</div>
-    <div class="screen" id="div1">
+    <div class="screen" id="div1"></div>
+        <div id="pk-cont">
+            <span id="compte">9 463,78 €</span>
+        </div>
         <button id="envoyer" onclick="changepage(2)">Envoyer</button>
     </div>
     <div class="screen cache" id="div2">
         <div id="input">
             <input id="destinataire" type="text" placeholder="Nom, nom d'utilisateur, adresse email, n° de téléphone">
+            <div class="cache" id="cherche" onclick="changepage(3); verqui()">
+
+            </div>
         </div>
-        <button id="continuer" onclick="changepage(3)">Continuer</button>
+        <button id="continuer" onclick="verqui(); changepage(3)">Continuer</button>
     </div>
     <div class="screen cache" id="div3">
+        <div class="flexcenter">
+            <div id="pp"></div>
+            <div id="id">
+                <p>Maria Gomes</p>
+                <p>@Fernandoisabel</p>
+            </div>
+        </div>
         <div id="pk-cont">
             <input type="tel" id="pay" placeholder="0,00">
             <input id="pk" type="text" placeholder="Pourquoi ce paiement ?">
-            <button class="onvoitpas" id="suivantpay" onclick="changepage(4); argent()">Suivant</button>
+            <button class="onvoitpas" id="suivantpay" onclick="argent(); changepage(4)">Suivant</button>
         </div>
     </div>
     <div onclick="changepage(5)" class="screen cache" id="div4">
 
     </div>
-    <div onclick="changepage(5)" class="screen cache" id="div5">
+    <div onclick="changepage(6)" class="screen cache" id="div5">
 
     </div>
     <div class="screen cache" id="div6">
 
+        <div class="flexcenter">
+            <div id="pp"></div>
+            <div id="id">
+                <p>Maria Gomes</p>
+                <p>@Fernandoisabel</p>
+            </div>
+        </div>
+        <div id="pk-cont">
+            <span id="leprix"></span>
+            <div class="flexdroite">
+                <span id="total"></span>
+            </div>
+            <button id="envoyerfinal" onclick="changepage(7)">Envoyer</button>
+        </div>
     </div>
+    <div class="screen cache" id="div7">
+        <div id="phrase"></div>
+        <div id="synthese" onclick="changepage(1)"><span>Accéder à la synthèse</span></button>
+    </div>
+
     <style>
+
         @font-face {
             font-family: "PayPal Open TT";
             src: url("PayPalOpen-Regular.woff2");
         }
  
+        #pp {
+            background: url('pp.jpg');
+            border-radius: 50%;
+            width: 6rem;
+            height: 6rem;
+            transform: scale(0.85);
+        }
 
+        #synthese {
+            font-weight: bolder;
+            cursor: pointer;
+            position: absolute;
+            top: 44.4vh;
+            width: 100vw;
+            font-size: 9.6pt;
+            text-align: center;
+            color: #2596be;
+        }
+
+        #synthese:hover {
+            text-decoration: underline;
+        }
+
+        #cherche {
+            background: url('recherche.png');
+            background-size: 100vw auto;
+            background-repeat: no-repeat;
+            width: 100vw;
+            transform: scale(0.96) translateX(2vw);
+            position: absolute;
+            height: 23vh;
+            top: 40vh;
+            box-shadow: 0 0 10px lightgrey;
+            border-radius: 10px;
+        }
+
+        #cherche:not(.cache) {
+            display: block;
+        }
+
+        #phrase {
+            text-align: center;
+            width: 90vw;
+            background: white;
+            margin: auto;
+            padding: 5vw 1vw 5vw 1vw;
+            font-size: 16pt;
+            color: #1e202a;
+            position: relative;
+            top: 15vh;
+        }
 
         * {
             margin: 0;
@@ -89,7 +172,46 @@
             outline: none;
             font-size: 25pt;
             background-color: transparent;
-            color: black;
+            color: #1e202a;
+        }
+        
+        #leprix {
+            position: absolute;
+            height: 8vw;
+            width: 100vw;
+            text-align: center;
+            border: none;
+            outline: none;
+            font-size: 25pt;
+            background-color: transparent;
+            color: #1e202a;
+            top: 28.7vh;
+        }
+
+        #compte {
+            position: absolute;
+            height: 8vw;
+            width: 70vw;
+            border: none;
+            outline: none;
+            font-size: 27pt;
+            background-color: transparent;
+            color: #1e202a;
+            top: 38.2vh;
+            left: 7.5vw;
+            pointer-events: none;
+        }
+
+        #total {
+            text-align: right;
+            border: none;
+            outline: none;
+            font-size: 13pt;
+            background-color: transparent;
+            color: #1e202a;
+            font-weight: bolder;
+            font-size: 9.6pt;
+            margin-right: 3.7vw;
         }
 
         #chargement {
@@ -123,16 +245,51 @@
             display: none;
         }
 
+        /* #div6.cache > div {
+            display: none;
+        } */
+
         #chargement.cache {
             display: none;
         }
 
+        .flexcenter {
+            position: relative;
+            top: 13.5vh;
+            display: flex;
+            justify-content: center;
+            height: 6rem;
+            vertical-align: center;
+            align-items: center;
+        }
+
+        .flexdroite {
+            display: flex;
+            align-items: right;
+            justify-content: right;
+            width: 100vw;
+            position: absolute;
+            top: 73.7vh;
+        }
+
+        .flexcenter > * {
+            margin: 1.5vw;
+            color: #1f2f4e;
+        }
+
+        .flexcenter > div:nth-child(2) > p:nth-child(2) {
+            font-size: 11pt;
+        }
+
+        .flexcenter > div:nth-child(2) > p:nth-child(1) {
+            font-size: 16pt;
+        }
 
         div#input, div#pk-cont {
             display: flex;
             justify-content: center;
             width: 100vw;
-            height: 100vh;
+            height: 80vh;
         }
 
         div#div1 {
@@ -167,6 +324,11 @@
 
         div#div6 {
             background: no-repeat url("13.png");
+            background-size: 100vw;
+        }
+
+        div#div7 {
+            background: no-repeat url("14.png");
             background-size: 100vw;
         }
 
@@ -212,6 +374,23 @@
             background-color: #2596be;
         }
 
+        #envoyerfinal {
+            font-weight: bolder;
+            cursor: pointer;
+            position: absolute;
+            top: 90vh;
+            background: #003087;
+            border: none;
+            border-radius: 100px;
+            height: 10vw;
+            width: 82vw;
+            color: white;
+            transform: scale(0.8);
+            margin: 2.2vw;
+            transition: ease .3s;
+            font-size: 14pt;
+        }
+
         #suivantpay {
             font-weight: bolder;
             cursor: pointer;
@@ -238,7 +417,7 @@
             opacity: 1;
         }
 
-        #suivantpay:hover {
+        #suivantpay:hover, #envoyerfinal:hover {
             background-color: #2596be;
         }
 
@@ -253,8 +432,17 @@
         document.querySelector('#pay').style.top = (29.5/100*vh) + "px";
 
         let cmb;
+        let cmbdep;
+        let qui;
 
-        document.querySelector('#pay').addEventListener('change', (e)=> {
+        document.querySelector('#destinataire').addEventListener('input', (e)=> {
+            let nom = e.target.value;
+            if (nom.includes("fernandoisa")) {
+                document.querySelector('#cherche').classList.remove('cache')
+            }
+        })
+
+        document.querySelector('#pay').addEventListener('input', (e)=> {
             let qtt = +(e.target.value.replace(',', "."));
             if (qtt == 0) {
                 document.querySelector('#suivantpay').classList.add('onvoitpas')
@@ -265,6 +453,16 @@
 
         function argent() {
             cmb = document.querySelector('#pay').value;
+            document.querySelector('#leprix').innerHTML=cmb;
+            let compte = document.querySelector('#compte').innerHTML.replace(' €', '').replace(' ', '').replace(',', '.');
+            let comptenb = +(compte) - +(cmb.replace(',', '.'));
+            document.querySelector('#compte').innerHTML = comptenb.toLocaleString() + " €";
+            document.querySelector('#total').innerHTML = cmb + " EUR";
+            document.querySelector('#phrase').innerHTML =`Vous avez envoyé ${cmb} EUR à Maria Gomes`;
+        }
+        
+        function verqui() {
+            qui = document.getElementById('#destinatiare').value;
         }
 
         let div1 = document.getElementById('div1');
@@ -273,6 +471,7 @@
         let div4 = document.getElementById('div4');
         let div5 = document.getElementById('div5');
         let div6 = document.getElementById('div6');
+        let div7 = document.getElementById('div7');
 
         let btn1 = document.getElementById('envoyer');
 
@@ -283,18 +482,27 @@
         }
 
         function changepage(n) {
-            setTimeout(() => {
-                charge.classList.remove('cache');
-            }, random(100, 300))
-            setTimeout(() => {
+            if (n == 5) {
                 page(n)
-                charge.classList.add('cache');
-            }, random(600, 900))
+            } else {
+                setTimeout(() => {
+                    charge.classList.remove('cache');
+                }, random(100, 300))
+                setTimeout(() => {
+                    page(n)
+                    charge.classList.add('cache');
+                }, random(600, 900))
+            }
         }
 
         function page(n) {
-            window[`div${n-1}`].classList.add('cache')
-            window[`div${n}`].classList.remove('cache')
+            if (n == 1) {
+                window[`div7`].classList.add('cache')
+                window[`div${n}`].classList.remove('cache')
+            } else {
+                window[`div${n-1}`].classList.add('cache')
+                window[`div${n}`].classList.remove('cache')
+            }
         }
     </script>
 </body>
