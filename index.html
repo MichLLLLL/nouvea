@@ -19,11 +19,11 @@
     <div class="screen cache" id="div2">
         <div id="input">
             <input id="destinataire" type="text" placeholder="Nom, nom d'utilisateur, adresse email, n° de téléphone">
-            <div class="cache" id="cherche" onclick="changepage(3); verqui()">
+            <div class="cache" id="cherche" onclick="changepage(3)">
 
             </div>
         </div>
-        <button id="continuer" onclick="verqui(); changepage(3)">Continuer</button>
+        <button id="continuer" onclick="changepage(3)">Continuer</button>
     </div>
     <div class="screen cache" id="div3">
         <div class="flexcenter">
@@ -729,20 +729,20 @@
         }
 
         #continuer {
+            font-weight: bolder;
+            font-size: 13pt;
             cursor: pointer;
             position: absolute;
             background: #003087;
             border: none;
             border-radius: 100px;
-            height: 11vw;
+            height: 10vw;
             width: 47vw;
             color: white;
-            top: 70.2vh;
+            top: 77.2vh;
             margin: 2.2vw;
             transition: ease .3s;
-            font-weight: bolder;
-            font-size: 11pt;
-            transform: scale(0.85);
+            transform: scale(0.8);
         }
 
         #continuer:hover {
@@ -851,9 +851,9 @@
             document.querySelector('#phrase').innerHTML =`Vous avez envoyé ${cmb} EUR à Maria Gomes`;
         }
         
-        function verqui() {
-            qui = document.getElementById('#destinatiare').value;
-        }
+        // function verqui() {
+        //     qui = document.getElementById('#destinatiare').value ? this : "";
+        // }
 
         let div1 = document.getElementById('div1');
         let div2 = document.getElementById('div2');
