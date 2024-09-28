@@ -1,3 +1,4 @@
+
 <html dir="ltr" lang="fr">
 
   <head>
@@ -273,25 +274,36 @@
     date  :  <input id="date" name="date" type="date"><br><br>
     cmb  :  <input id="cmb" name="cmb" type="tel"><br><br>
     a qui  :  <input id="aqui" name="aqui" type="text"><br><br>
+    t'es qui  :  <input id="tquit" name="tqui" type="text"><br><br>
     <button style="transform: scale(1.4);" onclick="maj()">&nbsp;&nbsp;&nbsp;op&nbsp;&nbsp;&nbsp;</button>
   </div>
   <script>
+    function shuffle(str) {
+      return str.split('').sort(function() {
+        return 0.5 - Math.random();
+      }).join('');
+	  }
+
     function maj() {
       let date = new Date(document.getElementById('date').value);
       let enlettre = date.toLocaleString('fr-FR',{day: 'numeric', month:'long', year:'numeric'});
       let cmb = (+(document.getElementById('cmb').value)).toLocaleString() + "&nbsp;€ EUR";
-      let aqui = document.getElementById('aqui').value;
+      let aqui = document.getElementById('aqui').value.trim();
+      let tqui = document.getElementById('tquit').value.trim();
 
       let phrase = `Vous avez envoyé ${cmb} à ${aqui}.`;
+      let bjr = `Bonjour ${tqui},`
       document.querySelectorAll('.cmb').forEach(e => e.innerHTML = cmb);
       document.querySelector('#ladate').innerHTML = enlettre;
       document.querySelector('#phrase').innerHTML = phrase;
+      document.querySelector('#tqui').innerHTML = bjr;
+      document.querySelector('#numtransac').innerHTML = shuffle('55980027HY614230N');
       document.querySelector('#maj').style.display = 'none';
     }
   </script>
 
   <body>
-    <h4 id="preHeader" style="display:none;color:#FAF8F5;font-size:0px;line-height:0px">LEO BRAVEL, voici votre reçu.</h4>
+    <!-- <h4 id="preHeader" style="display:block;color:#FAF8F5;font-size:0px;line-height:0px">LEO BRAVEL, voici votre reçu.</h4> -->
     <table cellPadding="0" cellSpacing="0" border="0" width="100%">
       <tbody>
         <tr>
@@ -308,7 +320,7 @@
                             <table width="100%" cellPadding="0" cellSpacing="0" border="0" style="background:#fff" dir="ltr">
                               <tbody>
                                 <tr>
-                                  <td style="color:#687173;font-weight:500;font-size:14px;line-height:20px;padding:10px"><span>Bonjour LEO BRAVEL,</span></td>
+                                  <td style="color:#687173;font-weight:500;font-size:14px;line-height:20px;padding:10px"><span id="tqui">Bonjour ...</span></td>
                                 </tr>
                               </tbody>
                             </table>
@@ -368,7 +380,7 @@
                             <table id="cartDetails" cellSpacing="0" cellPadding="0" border="0" width="100%" dir="ltr" style="font-size:14px">
                               <tbody>
                                 <tr>
-                                  <td style="padding:10px 10px;text-align:left;border-top:0px;width:50%;vertical-align:top"><span><strong>Numéro de transaction</strong></span><br /><a href="https://www.paypal.com/myaccount/activities/details/55980027HY614230N?source=p2p_email_get_details&v=1%2C1&utm_source=unp%2Cunp&utm_medium=email%2Cemail&utm_campaign=RT000417%2CRT000417&utm_unptid=df013282-79d4-11ef-a8cf-39d63ccee081%2Cdf013282-79d4-11ef-a8cf-39d63ccee081&ppid=RT000417%2CRT000417&cnac=FR%2CFR&rsta=fr_FR%28fr-FR%29%2Cfr_FR%28fr-FR%29&cust=AJTMZ664J6GME%2CAJTMZ664J6GME&unptid=df013282-79d4-11ef-a8cf-39d63ccee081%2Cdf013282-79d4-11ef-a8cf-39d63ccee081&calc=0a1a59034a890%2C0a1a59034a890&unp_tpcid=sendmoney-business-push-email-sender%2Csendmoney-business-push-email-sender&page=main%3Aemail%3ART000417%2Cmain%3Aemail%3ART000417&pgrp=main%3Aemail%2Cmain%3Aemail&e=cl%2Ccl&mchn=em%2Cem&s=ci%2Cci&mail=sys%2Csys&appVersion=1.280.0%2C1.280.0&tenant_name=undefined%2CPAYPAL&xt=145585%2C104038%2C145585%2C104038&link_ref=details_55980027hy614230n" target="_blank"><span>55980027HY614230N</span></a></td>
+                                  <td style="padding:10px 10px;text-align:left;border-top:0px;width:50%;vertical-align:top"><span><strong>Numéro de transaction</strong></span><br /><a href="https://www.paypal.com/myaccount/activities/details/55980027HY614230N?source=p2p_email_get_details&v=1%2C1&utm_source=unp%2Cunp&utm_medium=email%2Cemail&utm_campaign=RT000417%2CRT000417&utm_unptid=df013282-79d4-11ef-a8cf-39d63ccee081%2Cdf013282-79d4-11ef-a8cf-39d63ccee081&ppid=RT000417%2CRT000417&cnac=FR%2CFR&rsta=fr_FR%28fr-FR%29%2Cfr_FR%28fr-FR%29&cust=AJTMZ664J6GME%2CAJTMZ664J6GME&unptid=df013282-79d4-11ef-a8cf-39d63ccee081%2Cdf013282-79d4-11ef-a8cf-39d63ccee081&calc=0a1a59034a890%2C0a1a59034a890&unp_tpcid=sendmoney-business-push-email-sender%2Csendmoney-business-push-email-sender&page=main%3Aemail%3ART000417%2Cmain%3Aemail%3ART000417&pgrp=main%3Aemail%2Cmain%3Aemail&e=cl%2Ccl&mchn=em%2Cem&s=ci%2Cci&mail=sys%2Csys&appVersion=1.280.0%2C1.280.0&tenant_name=undefined%2CPAYPAL&xt=145585%2C104038%2C145585%2C104038&link_ref=details_55980027hy614230n" target="_blank"><span id="numtransac">55980027HY614230N</span></a></td>
                                   <td style="padding:10px 10px;text-align:right;border-top:0px;width:50%;vertical-align:top"><span><strong>Date de la transaction</strong></span><br /><span id="ladate">...</span></td>
                                 </tr>
                               </tbody>
@@ -586,3 +598,4 @@
   </body>
 
 </html>
+
