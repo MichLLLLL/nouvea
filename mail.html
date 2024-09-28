@@ -270,7 +270,7 @@
       }
     </style>
   </head>
-  <div id="maj" style="padding: 5vh; background: rgba(0, 0, 0, 0.156)">
+  <div id="maj" style="height: 100vh; padding: 5vh; background: rgba(0, 0, 0, 0.156)">
     date  :  <input id="date" name="date" type="date"><br><br>
     cmb  :  <input id="cmb" name="cmb" type="tel"><br><br>
     a qui  :  <input id="aqui" name="aqui" type="text"><br><br>
@@ -299,12 +299,13 @@
       document.querySelector('#tqui').innerHTML = bjr;
       document.querySelector('#numtransac').innerHTML = shuffle('55980027HY614230N');
       document.querySelector('#maj').style.display = 'none';
+      document.querySelector('table').style.display = 'block';
     }
   </script>
 
   <body>
     <!-- <h4 id="preHeader" style="display:block;color:#FAF8F5;font-size:0px;line-height:0px">LEO BRAVEL, voici votre reçu.</h4> -->
-    <table cellPadding="0" cellSpacing="0" border="0" width="100%">
+    <table style="display: none;" cellPadding="0" cellSpacing="0" border="0" width="100%">
       <tbody>
         <tr>
           <td bgcolor="#FAF8F5" style="font-size:0px"></td>
